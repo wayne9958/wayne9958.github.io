@@ -8,6 +8,6 @@
     "\\src\\router",
     "\\src\\views"
   ],
-  "SelectedNode": "\\src\\views\\AboutView.vue",
+  "SelectedNode": "\\src\\components\\Profile.vue",
   "PreviewInSolutionExplorer": false
 }
