@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkv"]=self["webpackChunkv"]||[]).push([[594],{918:function(n,u,r){r.r(u),r.d(u,{default:function(){return v}});var s=r(641);const c=(0,s.Lk)("div",{class:"background"},[(0,s.Lk)("img",{alt:"",src:""})],-1),t=(0,s.Lk)("div",{class:"about"},[(0,s.Lk)("h1",null,"嗨我是莊詠惟，畢業於靜宜大學資訊管理學系，目前正致力於研究vue.js，react.js。"),(0,s.Lk)("br"),(0,s.Lk)("h1")],-1);function a(n,u){return(0,s.uX)(),(0,s.CE)(s.FK,null,[c,t],64)}var e=r(262);const k={},l=(0,e.A)(k,[["render",a]]);var v=l}}]);
+//# sourceMappingURL=about.8158686f.js.map
