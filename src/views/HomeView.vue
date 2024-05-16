@@ -1,22 +1,18 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome"/>
-  </div>
+  <Profile />
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/Profile.vue'
+import { defineComponent } from 'vue';
 
-export default {
+// Components
+import Profile from '../components/Profile.vue';
+
+export default defineComponent({
   name: 'HomeView',
+
   components: {
-    HelloWorld
-  }
-}
+    Profile,
+  },
+});
 </script>
-<style>
-    .home{
-        margin-left:0;
-    }
-</style>
