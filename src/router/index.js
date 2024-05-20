@@ -17,15 +17,11 @@ const routes = [
         name: 'DemoOne',
         component: () => import('../views/DemoOne.vue')
     },
-    {
-        path: '/TestBtn',
-        name: 'TestBtn',
-        component: () => import('../views/TestBtn.vue')
-    }
+
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(), // ¨Ï¥Î Hash ¼Ò¦¡
+    history: createWebHashHistory(), // ï¿½Ï¥ï¿½ Hash ï¿½Ò¦ï¿½
     routes
 })
 

@@ -1,5 +1,9 @@
 <template>
+    
     <div class="hello">
+
+        <button @click="ShowIt=!ShowIt" style="color:aliceblue">Show the shop</button>
+        <div v-show="ShowIt">
         <v-row>
             <v-col cols="6">
                 <v-img src="@/assets/apple.png"
@@ -25,47 +29,65 @@
                     三十元
                 </div>
             </v-col>
-        </v-row>
-        <v-row>
             <v-col cols="6">
-                <div class="movedtext" style="color: white;">
-                    ({{ AppleCount}})
-                </div>
-            </v-col>
-            <v-col cols="6">
-                <div class="movedtext2" style="color: white;">
-                    ({{ OrangeCount}})
-                </div>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col cols="6">
-                <v-btn class="movebtn"
-                       @click="handler">
-                    buy it
+                <v-btn class="mt-n5"
+                       @click="BtnPlus1"
+                       density="compact"
+                       size="x-small">
+                    +
                 </v-btn>
             </v-col>
             <v-col cols="6">
-                <v-btn class="movebtn2"
-                       @click="handler2">
-                    buy it
+                <v-btn class="mt-n5"
+                       @click="BtnPlus2"
+                       density="compact"
+                       size="x-small">
+                    +
                 </v-btn>
             </v-col>
-        </v-row>
+            <v-col cols="6">
+                <div class="mt-n4" style="color: white;">
+                    ({{ this.$store.state.Apple}})
+                </div>
+            </v-col>
+            <v-col cols="6">
+                <div class="mt-n4" style="color: white;">
+                    ({{ this.$store.state.Orange}})
+                </div>
+            </v-col>
+            <v-col cols="6">
+                <v-btn class="mt-n5"
+                       @click="BtnMinus1"
+                       density="compact"
+                       size="x-small">
+                    -
+                </v-btn>
+            </v-col>
+            <v-col cols="6">
+                <v-btn class="mt-n5"
+                       @click="BtnMinus2"
+                       density="compact"
+                       size="x-small">
+                    -
+                </v-btn>
+            </v-col>
+            </v-row>
         <div>
             <button style="color:white;" @click="showAlert = true">送出訂單</button>
             <div class="alert" v-show="showAlert">
                 您總共下訂了<br/>
-                {{AppleCount}}個蘋果，<br/>
-                {{OrangeCount}}個橘子，<br/>
-                總計的金額是:{{ChildCount}}。<br/>
+                {{this.$store.state.Apple}}個蘋果，<br/>
+                {{this.$store.state.Orange}}個橘子，<br/>
+                總計的金額是:{{this.$store.state.AppleTotal+this.$store.state.OrangeTotal}}。<br/>
                 <button @click="hideAlert">確認訂單</button>
             </div>
+        </div>
         </div>
     </div>
 </template>
 
-<script>
+<script >
+
     export default {
         name: 'DemoOne',
         props: {
@@ -73,53 +95,46 @@
         },
         data() {
             return {
-                ChildCount: 0,
                 showAlert: false,
-                AppleCount: 0,
-                OrangeCount: 0
+                ShowIt:false,
             }
         },
         //點擊事件
         methods: {
-            handler() {
-                this.ChildCount += 25
-                this.AppleCount++
-                this.$emit('child-count-change', this.ChildCount)
+            BtnPlus1() {
+                this.$store.commit('ApplePlus')
+                
             },
-            handler2() {
-                this.ChildCount += 30
-                this.OrangeCount++
-                this.$emit('child-count-change', this.ChildCount)
+            BtnPlus2() {
+                this.$store.commit('OrangePlus')
+            },
+            BtnMinus1() {
+                if(this.$store.state.Apple>0){
+                this.$store.commit('AppleMinus')
+                }
+            },
+            BtnMinus2() {
+                if(this.$store.state.Orange>0){
+                this.$store.commit('OrangeMinus')
+                }
             },
             hideAlert() {
                 this.showAlert = false;
-                this.ChildCount = 0
-                this.AppleCount = 0
-                this.OrangeCount = 0
+                this.$store.commit('Clear')
 
             }
 
         },
 
+
     }
+
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    h3 {
-        margin: 40px 0 0;
-    }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
 
     a {
         color: #42b983;
@@ -144,5 +159,9 @@
         }
     button{
         margin-top:20px;
+    }
+    .mt-n5{
+        font-size:12px;
+        height:30px;
     }
 </style>
