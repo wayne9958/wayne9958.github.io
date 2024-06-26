@@ -1,9 +1,11 @@
 <template>
     <div class="prof">
         <h1>Welcome</h1>
-        <p>
+        <li><a href="https://github.com/wayne9958" target="_blank" rel="noopener">MY GITHUB</a></li>
+        <h3>
             <span class="white-text">請點擊下方查看我過去的作品影片。</span>
-        </p>
+            
+        </h3>
         <h3 class="white-text">Here is my Demo videos.</h3>
         <ul>
             <li><a href="https://www.youtube.com/watch?v=LmL0-cEdIak" target="_blank" rel="noopener">畢業專題TROBOT</a></li>
@@ -15,7 +17,7 @@
 
     </div>
 </template>
-
+s
 <script>
     export default {
         name: 'PROF',
@@ -36,10 +38,12 @@
     }
 
     h1 {
+        font-size:50px;
         margin: 50px;
     }
 
     h3 {
+        font-size:5vh;
         margin: 40px 0 0;
     }
 
@@ -51,6 +55,7 @@
     li {
         display: inline-block;
         margin: 0 50px;
+        font-size:5vh;
     }
 
     a {

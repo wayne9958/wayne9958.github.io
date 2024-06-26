@@ -2,8 +2,8 @@
     <div class="router-container">
         <nav>
             <router-link to="/">Home</router-link> |
-            <router-link to="/about">About me</router-link> |
-            <router-link to="/DemoOne">Vue專案</router-link> 
+            <router-link to="/DemoOne">TROBOT</router-link> |
+            <router-link to="/About">shop demo</router-link> 
         </nav>
         <router-view />
     </div>
@@ -22,7 +22,9 @@
     }
 
     nav {
+        font-size:30px;
         padding: 30px;
+        background-color:darkblue;
     }
 
         nav a {
